@@ -27,6 +27,3 @@ pipeline {
         }
     }
 }
-
-credentials plugin
-credentials binding plugin
