@@ -20,9 +20,7 @@ pipeline {
         stage('deploy') {
             steps {
                 echo 'deploying the application...'
-                withCredentials([usernamePassword(credentials:'server-credentials', usernameVariable:USER)]) {
-                    echo "deployed with ${USER}"
-                }
+                withCredentials([usernamePassword(credentials:'server-credentials', usernameVariable:USER)]) {echo "deployed with ${USER}"}
             }
         }
     }
