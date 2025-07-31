@@ -1,26 +1,12 @@
 pipeline {
     agent any
-    environment {
-        NEW_VERSION  = '1.0'
-        SERVER_CREDENTIALS = credentials('server-credentials')
+    parameters {
+        string(name:'NAME', defaultValue:'', description: 'Enter your name')
     }
     stages {
-        stage('build') {
+        stage('Good Morning!!') {
             steps {
-                echo 'building the application...'
-                echo "built with version ${NEW_VERSION}"
-            }
-        }
-        stage('test') {
-            steps {
-                echo 'testing the application...'
-                echo "tested with ${SERVER_CREDENTIALS}"
-            }
-        }
-        stage('deploy') {
-            steps {
-                echo 'deploying the application...'
-                withCredentials([usernamePassword(credentials:'server-credentials', usernameVariable:USER)]) {echo "deployed with ${USER}"}
+                echo "Hello, ${params.NAME}!!"
             }
         }
     }
